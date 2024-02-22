@@ -1,4 +1,4 @@
-import { createPool } from "mysql2"
+import { createPool } from "mysql2/promise"
 require("dotenv").config()
 
 export const pool = createPool({
@@ -9,12 +9,12 @@ export const pool = createPool({
   port: Number(process.env.DB_PORT),
 })
 
-pool.getConnection((err, connection) => {
-  if (err) {
-    console.error("Something went wrong connecting to the database ...")
-    throw err
+export const checkConnection = async () => {
+  try {
+    const connection = await pool.getConnection()
+    console.log("Connected to the database")
+    connection.release()
+  } catch (error) {
+    console.error("Error connecting to the database: ", error)
   }
-  if (connection) connection.release()
-  console.log("Successfully connected to the database ✨")
-  return
-})
+}
