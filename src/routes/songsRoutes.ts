@@ -8,7 +8,7 @@ import {
 const router = express.Router()
 
 router.get("/", getSongs)
-router.get("/:album_id", getSongsByAlbumId)
-router.get("/:id", getSongById)
+router.get("/:song_id", getSongById)
+router.get("/album/:album_id", getSongsByAlbumId)
 
 export default router

@@ -106,6 +106,8 @@ VALUES('It Won''t Be Long', '2:13', '["Paul McCartney", "John Lennon"]', 2),
       ('Not a Second Time', '2:07', '["Paul McCartney", "John Lennon"]', 2),
       ('Money (That''s What I Want)', '2:47', '["Janie Bradford", "Berry Gordy"]', 2);
 
+USE the_beatles_restapi;   
 
-     
-     
+SELECT * FROM songs;
+
+SELECT * FROM songs WHERE song_id = 1;
