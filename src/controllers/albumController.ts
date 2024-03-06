@@ -12,7 +12,7 @@ export const getAlbums = async (
 ) => {
   try {
     const results = await pool.query("SELECT * FROM albums")
-    response.status(200).json(results)
+    response.status(200).json(results[0])
   } catch (error) {
     return next(new AppError("Error fetching albums", 500))
   }
