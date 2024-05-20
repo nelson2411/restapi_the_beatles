@@ -1,7 +1,6 @@
 /*
 No PUT, Patch, or DELETE methods are going to be defined for this controller.
 */
-
 import { Request, Response, NextFunction } from "express"
 import { pool } from "../db"
 import AppError from "../utils/appError"
