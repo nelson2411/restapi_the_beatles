@@ -40,7 +40,7 @@ export const getSongsByAlbumId = catchASync(
 export const getSongById = catchASync(
   async (request: Request, response: Response) => {
     const song_id = parseInt(request.params.song_id)
-    const results = await pool.query("SELECT * FROM songs WHERE id = ?", [
+    const results = await pool.query("SELECT * FROM songs WHERE song_id = ?", [
       song_id,
     ])
 
