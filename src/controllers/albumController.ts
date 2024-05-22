@@ -11,7 +11,7 @@ export const getAlbums = async (
   next: NextFunction
 ) => {
   try {
-    const results = await pool.query("SELECT * FROM albums")
+    const results = await pool.query("SELECT * FROM studio_albums")
     response.status(200).json(results[0])
   } catch (error) {
     return next(new AppError("Error fetching albums", 500))
@@ -26,7 +26,9 @@ export const getAlbumById = async (
   next: NextFunction
 ) => {
   const id = parseInt(request.params.id)
-  const results = await pool.query("SELECT * FROM albums WHERE id = ?", [id])
+  const results = await pool.query("SELECT * FROM albums WHERE album_id = ?", [
+    id,
+  ])
 
   if (!results) return next(new AppError("No album found with this id", 404))
   response.status(200).json(results)

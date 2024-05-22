@@ -39,8 +39,5 @@ VALUES ('A Collection of Beatles Oldies', '39:46', '1966-12-09', 16, 'Parlophone
        ('The Beatles Stereo Box Set', '10:00:00', '2009-09-09', 217, 'Apple'),
        ('The Beatles in Mono', '9:00:00', '2009-09-09', 185, 'Apple');
        
-/*
-Modifying the songs album id, because it must accept id's from the studio_albums, live_albums and compilation_albums tables.
-*/
-
-ALTER TABLE songs
+-- Beatles for Sale album
+INSERT INTO songs (title, length, authors, album_id)

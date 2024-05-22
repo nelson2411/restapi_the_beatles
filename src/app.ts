@@ -4,10 +4,10 @@ dotenv.config({
 })
 
 import express, { Request, Response, NextFunction } from "express"
-
 import rateLimit from "express-rate-limit"
 import helmet from "helmet"
 import songsRouter from "./routes/songsRoutes"
+import albumsRouter from "./routes/albumsRoutes"
 
 const app = express()
 
@@ -23,6 +23,7 @@ app.use(
 // Routes
 
 app.use("/api/v1/songs", songsRouter)
+app.use("/api/v1/albums", albumsRouter)
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack)
